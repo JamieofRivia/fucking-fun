@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Script/TimerLabel.gd" type="Script" id=2]
+
+[node name="Countdown" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TimerLabel" type="Label" parent="."]
+margin_left = 201.0
+margin_top = 146.0
+margin_right = 241.0
+margin_bottom = 160.0
+script = ExtResource( 2 )
+
+[node name="Engarde" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Prêt" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Allez" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[node name="Over" type="Timer" parent="."]
+wait_time = 3.25
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Engarde" to="TimerLabel" method="_on_Engarde_timeout"]
+[connection signal="timeout" from="Prêt" to="TimerLabel" method="_on_Prt_timeout"]
+[connection signal="timeout" from="Allez" to="TimerLabel" method="_on_Allez_timeout"]
+[connection signal="timeout" from="Over" to="TimerLabel" method="_on_Over_timeout"]

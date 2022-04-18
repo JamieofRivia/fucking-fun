@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/strip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Fencer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Dummy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Script/FoilStrip.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/NameHolder.tscn" type="PackedScene" id=5]
+
+[node name="FoilStrip" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Strip" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3, 2 )
+
+[node name="Dummy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1856, 702 )
+
+[node name="Fencer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 74, 705 )
+
+[node name="ReturnButton" type="Button" parent="."]
+margin_left = 91.0
+margin_top = 57.0
+margin_right = 294.0
+margin_bottom = 124.0
+text = "Return"
+
+[node name="NameHolder" parent="." instance=ExtResource( 5 )]
+visible = false
+position = Vector2( 501, 135 )
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_ReturnButton_pressed"]
+
+[editable path="Strip"]
+[editable path="Strip/Countdown"]

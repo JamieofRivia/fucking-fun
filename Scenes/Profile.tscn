@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Script/Profile.gd" type="Script" id=1]
+[ext_resource path="res://Art/FencerForward.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/MasksForward.tscn" type="PackedScene" id=5]
+
+[node name="Profile" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 326.0
+margin_top = 71.0
+margin_right = 426.0
+margin_bottom = 95.0
+expand_to_text_length = true
+placeholder_text = "Player Name"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 365.0
+margin_top = 180.0
+margin_right = 377.0
+margin_bottom = 207.0
+
+[node name="GermanyButton" type="Button" parent="."]
+margin_left = 227.0
+margin_top = 165.0
+margin_right = 327.0
+margin_bottom = 284.0
+
+[node name="GermanyMask" parent="GermanyButton" instance=ExtResource( 5 )]
+position = Vector2( 51, 60 )
+script = null
+
+[node name="Germanyflag" parent="GermanyButton/GermanyMask" index="2"]
+visible = true
+
+[node name="UkButton" type="Button" parent="."]
+margin_left = 466.0
+margin_top = 104.0
+margin_right = 566.0
+margin_bottom = 223.0
+
+[node name="UkMask" parent="UkButton" instance=ExtResource( 5 )]
+position = Vector2( 52, 60 )
+script = null
+
+[node name="Ukflag" parent="UkButton/UkMask" index="1"]
+visible = true
+
+[node name="FencerForward" type="Sprite" parent="."]
+position = Vector2( 401, 327 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="ResetButton" type="Button" parent="."]
+margin_left = 229.0
+margin_top = 309.0
+margin_right = 315.0
+margin_bottom = 343.0
+text = "reset"
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 230.0
+margin_top = 118.0
+margin_right = 316.0
+margin_bottom = 145.0
+text = "Back"
+
+[node name="MasksForward" parent="." instance=ExtResource( 5 )]
+position = Vector2( 401, 255 )
+
+[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="GermanyButton" to="." method="_on_GermanyButton_pressed"]
+[connection signal="pressed" from="UkButton" to="." method="_on_UkButton_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+
+[editable path="GermanyButton/GermanyMask"]
+[editable path="UkButton/UkMask"]
+[editable path="MasksForward"]

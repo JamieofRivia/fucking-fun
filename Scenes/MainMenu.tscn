@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Script/MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 156.0
+margin_top = 62.0
+margin_right = 678.0
+margin_bottom = 858.0
+
+[node name="StartPractice" type="Button" parent="."]
+margin_left = 243.0
+margin_top = 193.0
+margin_right = 603.0
+margin_bottom = 367.0
+text = "Practice"
+
+[node name="Start1v1" type="Button" parent="."]
+margin_left = 240.0
+margin_top = 397.0
+margin_right = 600.0
+margin_bottom = 571.0
+text = "1v1"
+
+[node name="Profile" type="Button" parent="."]
+margin_left = 242.0
+margin_top = 612.0
+margin_right = 602.0
+margin_bottom = 786.0
+text = "Profile"
+
+[node name="FencingFunLabel" type="Label" parent="."]
+margin_left = 286.0
+margin_top = 117.0
+margin_right = 415.0
+margin_bottom = 178.0
+rect_scale = Vector2( 3, 3 )
+text = "Fencing Fun"
+uppercase = true
+
+[connection signal="pressed" from="StartPractice" to="." method="_on_StartPractice_pressed"]
+[connection signal="pressed" from="Start1v1" to="." method="_on_Start1v1_pressed"]
+[connection signal="pressed" from="Start1v1" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Profile" to="." method="_on_Profile_pressed"]
