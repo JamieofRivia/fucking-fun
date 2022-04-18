@@ -1,5 +1,7 @@
 extends Node2D
 
+#comment
+
 func _on_StartPractice_pressed():
 	get_tree().change_scene("res://Scenes/FoilStrip.tscn")
 
